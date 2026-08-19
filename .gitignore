@@ -1,0 +1,36 @@
+# Ambientes virtuais
+.venv/
+.env/
+
+# Cache e arquivos temporários
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.sqlite3
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Dados brutos e processados (se não forem públicos)
+data/raw/*
+data/processed/*
+
+# Arquivos grandes de dados (mantidos fora do GitHub)
+*.csv
+*.tsv
+*.parquet
+*.xlsx
+
+# Relatórios e saídas
+reports/*.html
+reports/*.pdf
+reports/*.png
+reports/*.jpg
+
+# Configurações locais de IDEs
+.idea/
+.vscode/
