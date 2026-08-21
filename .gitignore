@@ -1,3 +1,10 @@
+# Arquibos do banco de dados
+./notebooks/2026_Pagamento.csv
+./notebooks/2026_Passagem.csv
+./notebooks/2026_Trecho.csv
+./notebooks/2026_Viagem.csv
+
+
 # Ambientes virtuais
 .venv/
 .env/
