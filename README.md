@@ -4,6 +4,9 @@
 **Formato:** grupos de 3 a 4 pessoas  
 **Entregável:** repositório público no GitHub + apresentação de 10 minutos
 
+# Participantes do Grupo: 
+Rafael Machado, Rafael BBechelli e Quiara Brito
+
 ---
 
 ## 🎯 O desafio
