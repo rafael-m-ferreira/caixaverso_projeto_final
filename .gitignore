@@ -8,6 +8,8 @@
 # Ambientes virtuais
 .venv/
 .env/
+pyproject.toml
+uv.lock
 
 # Cache e arquivos temporários
 __pycache__/
