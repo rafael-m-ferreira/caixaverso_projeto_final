@@ -1,19 +1,12 @@
-# BANCO DE DADOS ESCOLHIDOS
-Selecionamos no portal da transparencia uma base de dados referente às viagens realizadas a serviço
+# PROJETO FINAL — DS-PY-004 - AGO/SET 2026
 
+## GRUPO
+Rafael Machado, Rafael Bechelli e Quiara Brito
+
+## BANCO DE DADOS ESCOLHIDOS
+Selecionamos no portal da transparência uma base de dados referente às viagens realizadas a serviço dos diversos órgãos do governo. Tomamos dados do ano base 2026 até o presente momento.
 A base pode ser encontrada em: https://portaldatransparencia.gov.br/download-de-dados/viagens
 
----
-
-# Projeto Final — DS-PY-004
-
-## Análise exploratória de dados com Python, NumPy, Pandas e Git
-
-**Formato:** grupos de 3 a 4 pessoas  
-**Entregável:** repositório público no GitHub + apresentação de 10 minutos
-
-# Participantes do Grupo: 
-Rafael Machado, Rafael BBechelli e Quiara Brito
 
 ---
 
