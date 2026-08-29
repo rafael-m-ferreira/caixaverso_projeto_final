@@ -1,52 +1,33 @@
 # PROJETO FINAL — DS-PY-004 - AGO/SET 2026
 
-## GRUPO
-Rafael Machado, Rafael Bechelli e Quiara Brito
+### GRUPO
+**Rafael Machado, Rafael Bechelli e Quiara Brito**
 
-## BANCO DE DADOS ESCOLHIDOS
+### BANCO DE DADOS ESCOLHIDOS
 Selecionamos no portal da transparência uma base de dados referente às viagens realizadas a serviço dos diversos órgãos do governo. Tomamos dados do ano base 2026 até o presente momento.
 A base pode ser encontrada em: https://portaldatransparencia.gov.br/download-de-dados/viagens
 
-
 ---
 
-## 🎯 O desafio
-
-O grupo assume o papel de uma equipe de dados que recebeu uma base **real e crua** e precisa responder: *o que esses dados têm a dizer?*
-
-Não existe resposta certa pré-definida. O que se avalia é o **processo**: como os dados foram diagnosticados, tratados e analisados, e se as conclusões apresentadas se sustentam nos números produzidos.
-
----
-
-## 📊 Escolha da base
-
-- Base pública com no mínimo **1.000 linhas** e **8 colunas**  
-- Pelo menos **3 numéricas** e **2 categóricas**  
-- Fontes sugeridas:
-  - [Portal Brasileiro de Dados Abertos](https://dados.gov.br)
-  - [Kaggle Datasets](https://www.kaggle.com/datasets)
-  - [IBGE — SIDRA](https://sidra.ibge.gov.br)
-  - [Base dos Dados](https://basedosdados.org)
-
-> Bases já tratadas (Iris, Titanic) **não serão aceitas**. O trabalho de limpeza é parte essencial.
-
----
-
-## 📂 Estrutura esperada do repositório
+### 📂 ESTRUTURA
 
 
 ```
 seu-projeto/
-├── README.md              <- explica o projeto, a base e como reproduzir
+├── README.md                     <- explica o projeto, a base e como reproduzir
 ├── notebooks/
-│   └── analise.ipynb      <- a análise, do início ao fim
-├── dados/
-│   └── (ou o link para a base, se for grande demais para o Git)
+│   ├── analise.ipynb             <- O notebook contendo a análise feita, sem outputs
+│   ├── analise_outputs.ipynb     <- O notebook contendo a análise deita, com outputs
+│   ├── 2026_Viagem.csv           <- Base principal (não consta no repo, inserir manualmente)
+│   ├── 2026_Pagamento.csv        <- Base auxiliar (não consta no repo, inserir manualmente)
+│   ├── 2026_Passagem.csv         <- Base auxiliar (não consta no repo, inserir manualmente)
+│   └── 2026_Trecho.csv           <- Base auxiliar (não consta no repo, inserir manualmente)
 └── .gitignore
 ```
-
 ---
 
+
+# CRITÉRIOS DE CORRECAO
 
 ### 1. Apresentação da base e das perguntas (10%)
 - De onde vieram os dados, o que cada coluna significa, qual o recorte temporal
@@ -89,7 +70,7 @@ Não é um detalhe — vale nota:
 
 ---
 
-## A apresentação (aula 7)
+## A apresentação
 
 **10 minutos + 2 de perguntas.** Sugestão de divisão:
 
