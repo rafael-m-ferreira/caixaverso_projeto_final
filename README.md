@@ -1,135 +1,93 @@
-# BANCO DE DADOS ESCOLHIDOS
-Selecionamos no portal da transparencia uma base de dados referente às viagens realizadas a serviço
+# PROJETO FINAL — DS-PY-004 - AGO/SET 2026
 
-A base pode ser encontrada em: https://portaldatransparencia.gov.br/download-de-dados/viagens
+### GRUPO
+**Rafael Machado, Rafael Bechelli e Quiara Brito**
+
+## 📌 Apresentação da Base de Dados e Perguntas Norteadoras
+
+### Contexto e Fonte dos Dados
+O presente estudo analisa as despesas e dinâmicas operacionais das viagens a serviço de servidores e colaboradores públicos federais no ano de **2026** (dados atualizados até 16/08/2026). Os microdados foram extraídos do [Portal da Transparência do Governo Federal](https://portaldatransparencia.gov.br/download-de-dados/viagens), cruzando a base de registros de afastamentos/viagens (`2026_Viagem.csv`) com a base de pagamentos (`2026_Pagamento.csv`) e a base de trechos (`2026_Trecho.csv`).
+
+* **Volume de dados inicial:** 406.083 linhas e 22 colunas.
+* **Volume após tratamento/limpeza:** 381.790 processos com efetiva movimentação financeira.
+* **Unidade monetária:** Reais (BRL).
+
+---
+### Perguntas Norteadoras de Negócio
+1. **Concentração por Órgão:** Quais órgãos públicos federais concentram mais recursos financeiros?
+2. **Perfil de Despesas por Cargo:** Quais cargos públicos demandam maior volume de gastos, qual a despesa média por deslocamento, tempo médio de duração e destinos preferenciais?
+3. **Impacto das Viagens Não Realizadas:** Qual é a proporção de viagens canceladas/não realizadas e qual o impacto financeiro (gasto comprometido vs. recuperado por devolução)?
+4. **Composição dos Gastos:** Como se distribuem os desembolsos entre diárias, passagens aéreas/terrestres e outros gastos operacionais?
+5. **Urgência e Custos:** Viagens sinalizadas em caráter de urgência apresentam prêmio de custo superior aos deslocamentos com planejamento ordinário?
 
 ---
 
-# Projeto Final — DS-PY-004
-
-## Análise exploratória de dados com Python, NumPy, Pandas e Git
-
-**Formato:** grupos de 3 a 4 pessoas  
-**Entregável:** repositório público no GitHub + apresentação de 10 minutos
-
-# Participantes do Grupo: 
-Rafael Machado, Rafael BBechelli e Quiara Brito
-
----
-
-## 🎯 O desafio
-
-O grupo assume o papel de uma equipe de dados que recebeu uma base **real e crua** e precisa responder: *o que esses dados têm a dizer?*
-
-Não existe resposta certa pré-definida. O que se avalia é o **processo**: como os dados foram diagnosticados, tratados e analisados, e se as conclusões apresentadas se sustentam nos números produzidos.
-
----
-
-## 📊 Escolha da base
-
-- Base pública com no mínimo **1.000 linhas** e **8 colunas**  
-- Pelo menos **3 numéricas** e **2 categóricas**  
-- Fontes sugeridas:
-  - [Portal Brasileiro de Dados Abertos](https://dados.gov.br)
-  - [Kaggle Datasets](https://www.kaggle.com/datasets)
-  - [IBGE — SIDRA](https://sidra.ibge.gov.br)
-  - [Base dos Dados](https://basedosdados.org)
-
-> Bases já tratadas (Iris, Titanic) **não serão aceitas**. O trabalho de limpeza é parte essencial.
-
----
-
-## 📂 Estrutura esperada do repositório
+### 📂 ESTRUTURA
 
 
 ```
 seu-projeto/
-├── README.md              <- explica o projeto, a base e como reproduzir
+├── README.md                     <- explica o projeto, a base e como reproduzir
 ├── notebooks/
-│   └── analise.ipynb      <- a análise, do início ao fim
-├── dados/
-│   └── (ou o link para a base, se for grande demais para o Git)
+│   ├── analise.ipynb             <- O notebook contendo a análise feita, sem outputs
+│   ├── analise_outputs.ipynb     <- O notebook contendo a análise deita, com outputs
+│   ├── 2026_Viagem.csv           <- Base principal (não consta no repo, inserir manualmente)
+│   ├── 2026_Pagamento.csv        <- Base auxiliar (não consta no repo, inserir manualmente)
+│   ├── 2026_Passagem.csv         <- Base auxiliar (não consta no repo, inserir manualmente)
+│   └── 2026_Trecho.csv           <- Base auxiliar (não consta no repo, inserir manualmente)
 └── .gitignore
 ```
 
 ---
+## 📈 Principais Achados e Insights da Análise Exploratória
 
+### Viagens Canceladas: Baixo Volume, Alto Custo Unitário e Baixa Recuperação
+* **Proporção:** 98,72% dos afastamentos foram realizados com sucesso e apenas **1,28% (4.878 processos)** foram cancelados.
+* **Assimetria de Gastos:** O cancelamento ocorre majoritariamente em viagens de maior complexidade. A mediana do custo em viagens não realizadas é de **R$ 3.391,74**, um valor **116% superior** à mediana das viagens realizadas (**R$ 1.566,92**).
+* **Ineficiência na Devolução:** Apenas **13,68%** do valor comprometido em viagens canceladas foi devolvido aos cofres públicos. Cerca de 66,4% dos processos cancelados não registraram qualquer restituição de valores, resultando em um **custo líquido de R$ 18,81 milhões** em viagens não executadas.
 
-### 1. Apresentação da base e das perguntas (10%)
-- De onde vieram os dados, o que cada coluna significa, qual o recorte temporal
-- **3 a 5 perguntas** que vocês querem responder, definidas **antes** da análise
-
-### 2. Diagnóstico de qualidade (20%)
-- Dimensões, tipos, uso de memória
-- Faltantes por coluna (quantidade e percentual)
-- Duplicados, categorias inconsistentes, valores inválidos
-- Identificação de outliers com método justificado (IQR ou z-score), avaliados no **grupo de comparação correto**
-
-### 3. Limpeza e transformação (25%)
-- Cada decisão de tratamento **justificada em texto**: por que imputar em vez de remover? por que a mediana do grupo e não a média geral?
-- Ao menos: tratamento de faltantes, remoção/consolidação de duplicados, padronização de categorias, criação de pelo menos 3 colunas derivadas
-- Uso de `map`, `apply`, `np.where`/`np.select`, `cut`/`qcut` onde fizer sentido
-
-### 4. Análise exploratória (30%)
-- Respostas às perguntas definidas no item 1, com evidência numérica
-- Uso obrigatório de: `groupby` com agregação múltipla, ao menos um `merge` (pode ser com uma tabela auxiliar que vocês montarem) e ao menos uma `pivot_table`
-- Ao menos 4 gráficos, cada um acompanhado de uma leitura em texto (o gráfico sozinho não conta)
-- Uso de NumPy em pelo menos um cálculo relevante (normalização, z-score, operação matricial, simulação)
-
-### 5. Conclusões (15%)
-- 3 a 5 achados defensáveis, escritos para uma **área de negócio**, não para outro programador
-- Limitações da análise: o que os dados **não** permitem afirmar
-- Próximos passos: o que vocês investigariam com mais tempo ou mais dados
+### Despesas por Cargo e Sigilo Institucional
+* **Cargos Ocultos e Sigilosos:** 
+  * Viagens sem cargo preenchido somaram **R$ 483,81 milhões** em gastos totais (média de R$ 3.434,35 e destino preferencial Brasília/DF).
+  * Viagens sob a categoria *"Informações Protegidas Por Sigilo"* concentraram **R$ 218,28 milhões** (62.627 viagens), apresentando duração média elevada de **7,5 dias**.
+* **Concentração de Destino:** O principal polo atrator das viagens no serviço público federal é a capital federal (**Brasília/DF**).
 
 ---
 
-## Requisitos de Git
+## 🎯 Conclusões, Limitações e Próximos Passos
 
-Não é um detalhe — vale nota:
+### Conclusões para Tomada de Decisão (Visão de Negócio)
+1. **Mitigação de Cancelamentos Caros:** Urgência em revisar políticas de emissão antecipada de bilhetes e reservas para itinerários de alto custo, prevendo regras contratuais mais flexíveis de cancelamento com companhias aéreas e hotéis para conter perdas de até R$ 18,8 milhões.
+2. **Qualificação Cadastral:** Alta taxa de registros com cargo não informado ou truncado aponta necessidade de travas no sistema de concessão de diárias e passagens (PCDP) para elevar a rastreabilidade dos recursos públicos.
 
-- [ ] Repositório público, com README preenchido
-- [ ] **Todos** os integrantes com commits (o histórico mostra quem fez o quê)
-- [ ] No mínimo 15 commits, com mensagens descritivas (`feat: adiciona tratamento de outliers`, não `update`)
-- [ ] Uso de pelo menos uma branch além da `main`
-- [ ] `.gitignore` adequado (nada de `.ipynb_checkpoints`, `__pycache__` ou credenciais)
-- [ ] Notebook commitado **com as saídas executadas**
+### Limitações da Base
+* Dados restritos ao período de **janeiro a meados de agosto de 2026** (ano incompleto).
+* Informações sobre categorias sensíveis (segurança/sigilo) omitidas pelo Portal da Transparência por razões legais.
+* Inviabilidade de atribuir causa unívoca às devoluções apenas pela tabela de viagens sem a justificativa administrativa individualizada.
 
----
-
-## A apresentação (aula 7)
-
-**10 minutos + 2 de perguntas.** Sugestão de divisão:
-
-| Tempo | Conteúdo |
-|---|---|
-| 1 min | A base e por que ela foi escolhida |
-| 2 min | Estado inicial: o que estava errado nos dados |
-| 2 min | Principais decisões de tratamento e suas justificativas |
-| 4 min | Os achados, com os gráficos |
-| 1 min | Limitações e próximos passos |
-
-Apresentem a partir do notebook ou de slides — o que preferirem. Todos os integrantes devem falar.
+### Próximos Passos
+* Desenvolvimento de modelo preditivo para identificar risco de cancelamento de passagens.
+* Análise de séries temporais de sazonalidade mensal dos gastos nos órgãos de maior orçamento.
+* Cruzamento com indicadores de produtividade e cumprimento de metas dos órgãos demandantes.
 
 ---
 
-## Critérios de avaliação por rubrica
+## ⚙️ Como Reproduzir este Projeto
 
-| Eixo | Em desenvolvimento | Desenvolvido | Referência |
-|---|---|---|---|
-| **Git** | Commits concentrados em uma pessoa ou mensagens genéricas | Histórico distribuído, mensagens claras, `.gitignore` correto | Uso fluente de branches; README que permite outra pessoa reproduzir a análise |
-| **NumPy** | Uso apenas incidental | Aplica vetorização em pelo menos um cálculo relevante | Escolhe NumPy conscientemente por eficiência e explica o porquê |
-| **Pandas** | Operações básicas com erros de alinhamento ou perda silenciosa de linhas | Domina `groupby`, `merge` e `pivot` e confere o resultado | Encadeia operações de forma legível e verifica integridade a cada etapa |
-| **Leitura e gravação** | Só lê csv simples | Lida com configurações não triviais e grava em formato adequado | Justifica a escolha do formato de saída (ex.: parquet por tipos e tamanho) |
-| **Limpeza e transformação** | Apaga o que incomoda, sem justificar | Trata faltantes, duplicados e outliers justificando cada decisão | Compara estratégias alternativas e mede o impacto de cada uma antes de decidir |
-| **Comunicação** | Apresenta código, não conclusões | Achados claros, apoiados em números | Narrativa que uma área de negócio entenderia e usaria para decidir |
-
----
-
-## Erros que mais custam nota
-
-1. Concluir coisas que os dados não sustentam (correlação apresentada como causa).
-2. Apagar linhas com faltantes sem verificar quantas e quais são — e sem dizer nada sobre isso.
-3. Tratar como outlier tudo que é extremo na coluna inteira, sem olhar o grupo de comparação.
-4. Fazer `merge` e não conferir se o número de linhas mudou.
-5. Gráfico sem título, sem eixo nomeado e sem uma frase dizendo o que ele mostra.
-6. Repositório com um único commit no dia da entrega.
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   cd seu-repositorio
+   ```
+2. Crie e ative um ambiente virtual (opcional, mas recomendado):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Linux/Mac
+   # ou venv\Scripts\activate no Windows
+   ```
+3. Instale os pacotes necessários:
+   ```bash
+   pip install pandas numpy matplotlib seaborn
+   ```
+4. Baixe as bases `2026_Viagem.csv` e `2026_Pagamento.csv` do [Portal da Transparência](https://portaldatransparencia.gov.br/download-de-dados/viagens) e insira na pasta raiz/dados.
+5. Execute o Jupyter Notebook `notebooks/analise.ipynb`.
