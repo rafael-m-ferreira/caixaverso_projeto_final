@@ -17,8 +17,7 @@ O presente estudo analisa as despesas e dinâmicas operacionais das viagens a se
 1. **Concentração por Órgão:** Quais órgãos públicos federais concentram mais recursos financeiros?
 2. **Perfil de Despesas por Cargo:** Quais cargos públicos demandam maior volume de gastos, qual a despesa média por deslocamento, tempo médio de duração e destinos preferenciais?
 3. **Impacto das Viagens Não Realizadas:** Qual é a proporção de viagens canceladas/não realizadas e qual o impacto financeiro (gasto comprometido vs. recuperado por devolução)?
-4. **Composição dos Gastos:** Como se distribuem os desembolsos entre diárias, passagens aéreas/terrestres e outros gastos operacionais?
-5. **Urgência e Custos:** Viagens sinalizadas em caráter de urgência apresentam prêmio de custo superior aos deslocamentos com planejamento ordinário?
+4. **Proporção de Viagens:**  Viagens nacionais vs. Viagens Internacionais
 
 ---
 
@@ -41,10 +40,12 @@ seu-projeto/
 ---
 ## 📈 Principais Achados e Insights da Análise Exploratória
 
-### Viagens Canceladas: Baixo Volume, Alto Custo Unitário e Baixa Recuperação
-* **Proporção:** 98,72% dos afastamentos foram realizados com sucesso e apenas **1,28% (4.878 processos)** foram cancelados.
-* **Assimetria de Gastos:** O cancelamento ocorre majoritariamente em viagens de maior complexidade. A mediana do custo em viagens não realizadas é de **R$ 3.391,74**, um valor **116% superior** à mediana das viagens realizadas (**R$ 1.566,92**).
-* **Ineficiência na Devolução:** Apenas **13,68%** do valor comprometido em viagens canceladas foi devolvido aos cofres públicos. Cerca de 66,4% dos processos cancelados não registraram qualquer restituição de valores, resultando em um **custo líquido de R$ 18,81 milhões** em viagens não executadas.
+### Concentração por Órgão
+* **Maiores Gastadores do Orçamento** : Verificou-se que o Ministério da Justiça é o grande gastador do orçamento federal com relação às viagens, concentrando sozinho 291 milhões de reais gastos em 2026 até agosto. Os ministérios da educação e defesa, seguem em segundo e terceiro lugares respectivamente.
+
+* **Top 10% Que Mais Gastam** : os top 10% gastadores, ie, Ministério da Justiça e Segurança Públicaa, Ministério da Educação e Ministério da Defesa consomem juntos praticamente o mesmo orçamento que os outros 32 órgãos da base. Consumindo aproximadamente 590 milhões de reais só neste ano de 2026 até o  mês de agosto!
+
+* **Gastos com Passagem vs Diárias por Categoria** :  órgãos que gastam muito do orçamento tendem a ter um gasto desproporcional com diárias de hotel. 
 
 ### Despesas por Cargo e Sigilo Institucional
 * **Cargos Ocultos e Sigilosos:** 
@@ -52,23 +53,22 @@ seu-projeto/
   * Viagens sob a categoria *"Informações Protegidas Por Sigilo"* concentraram **R$ 218,28 milhões** (62.627 viagens), apresentando duração média elevada de **7,5 dias**.
 * **Concentração de Destino:** O principal polo atrator das viagens no serviço público federal é a capital federal (**Brasília/DF**).
 
+### Viagens Canceladas: Baixo Volume, Alto Custo Unitário e Baixa Recuperação
+* **Proporção:** 98,76% dos afastamentos foram realizados com sucesso e apenas **1,24% (4.731 processos)** foram cancelados.
+* **Assimetria de Gastos:** O cancelamento ocorre majoritariamente em viagens de maior complexidade. A mediana do custo em viagens não realizadas é de **R$ 3.437,23**, um valor **119% superior** à mediana das viagens realizadas (**R$ 1.566,92**).
+* **Ineficiência na Devolução:** Apenas **13,93%** do valor comprometido em viagens canceladas foi devolvido aos cofres públicos. Cerca de 65,38% dos processos cancelados não registraram qualquer restituição de valores, resultando em um **custo líquido de R$ 18,42 milhões** em viagens não executadas.
+
+### Proporção de Viagens
+* **Proporção por âmbito (nacional vs internacional)** : As viagens internacionais são 2,56% dos processos, mas 15,08% do gasto, participação financeira quase seis vezes superior à numérica. São 8.272 viagens que consumiram R$ 146,57 milhões.A viagem internacional mediana custou R$ 13.425,20 contra R$ 1.571,60 da nacional: **8,54 vezes mais**. A distância se mantém no P95 (R$ 45.726,60 contra R$ 7.869,26), indicando patamar de custo distinto ao longo de toda a distribuição, e não efeito de casos extremos.
+
 ---
 
-## 🎯 Conclusões, Limitações e Próximos Passos
-
-### Conclusões para Tomada de Decisão (Visão de Negócio)
-1. **Mitigação de Cancelamentos Caros:** Urgência em revisar políticas de emissão antecipada de bilhetes e reservas para itinerários de alto custo, prevendo regras contratuais mais flexíveis de cancelamento com companhias aéreas e hotéis para conter perdas de até R$ 18,8 milhões.
-2. **Qualificação Cadastral:** Alta taxa de registros com cargo não informado ou truncado aponta necessidade de travas no sistema de concessão de diárias e passagens (PCDP) para elevar a rastreabilidade dos recursos públicos.
+## 🎯 Limitações
 
 ### Limitações da Base
 * Dados restritos ao período de **janeiro a meados de agosto de 2026** (ano incompleto).
 * Informações sobre categorias sensíveis (segurança/sigilo) omitidas pelo Portal da Transparência por razões legais.
 * Inviabilidade de atribuir causa unívoca às devoluções apenas pela tabela de viagens sem a justificativa administrativa individualizada.
-
-### Próximos Passos
-* Desenvolvimento de modelo preditivo para identificar risco de cancelamento de passagens.
-* Análise de séries temporais de sazonalidade mensal dos gastos nos órgãos de maior orçamento.
-* Cruzamento com indicadores de produtividade e cumprimento de metas dos órgãos demandantes.
 
 ---
 
